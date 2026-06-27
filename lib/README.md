@@ -11,11 +11,11 @@ Zero boilerplate · 76 built-in animations · HTTP auto-tracking · Router track
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Bundle size](https://img.shields.io/badge/bundle-pure%20CSS%20animations-blue?style=flat-square)](#7-animation-types)
 
-### 🔴 [Live Interactive Demo →](https://lucapiciollo.github.io/loadingTrace/)
+### 🔴 [Live Interactive Demo →](https://lucapiciollo.github.io/loadingTrace-demo/)
 
 > Try every animation, tweak config live, trigger HTTP / router events — all in the browser.
 
-[![Demo preview](https://lucapiciollo.github.io/loadingTrace/preview.png)](https://lucapiciollo.github.io/loadingTrace/)
+[![Demo preview](https://lucapiciollo.github.io/loadingTrace-demo/preview.png)](https://lucapiciollo.github.io/loadingTrace-demo/)
 
 <sub>👆 Click the image to open the live demo</sub>
 
