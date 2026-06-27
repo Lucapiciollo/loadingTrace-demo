@@ -1,0 +1,59 @@
+{
+  "name": "pl-loading-trace",
+  "version": "1.0.7",
+  "description": "Angular loading overlay library — 74 CSS animations, HTTP & router auto-tracking, named overlays, determinate progress bars, runtime config API, Angular Signals.",
+  "keywords": [
+    "angular",
+    "angular19",
+    "loading",
+    "spinner",
+    "overlay",
+    "progress",
+    "progress-bar",
+    "http-interceptor",
+    "router",
+    "loader",
+    "animation",
+    "signals",
+    "standalone",
+    "ngx-loading",
+    "loading-indicator",
+    "loading-overlay",
+    "loading-spinner",
+    "loading-bar"
+  ],
+  "author": {
+    "name": "Luca Piciollo",
+    "url": "https://github.com/lucapiciollo"
+  },
+  "license": "MIT",
+  "homepage": "https://lucapiciollo.github.io/loadingTrace/",
+  "peerDependencies": {
+    "@angular/common": ">=19.0.0",
+    "@angular/core": ">=19.0.0",
+    "@angular/router": ">=19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/router": {
+      "optional": true
+    }
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "module": "fesm2022/pl-loading-trace.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./fesm2022/pl-loading-trace.mjs"
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
