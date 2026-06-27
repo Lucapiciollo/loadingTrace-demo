@@ -65,12 +65,11 @@ jobs:
           cat > README.md <<EOF
           # loadingTrace-demo
 
-          [![npm](https://img.shields.io/npm/v/pl-loading-trace.svg)](https://www.npmjs.com/package/pl-loading-trace)
           [![Live demo](https://img.shields.io/badge/demo-live-4f46e5.svg)](https://lucapiciollo.github.io/loadingTrace-demo/)
 
           Public compiled artifacts and live interactive demo for **pl-loading-trace**.
 
-          - Package version: **${VERSION}**
+          - Source version: **${VERSION}**
           - Animation catalog: **108 total**
           - Indeterminate loaders: **85**
           - Determinate progress indicators: **23**
@@ -79,7 +78,7 @@ jobs:
 
           https://lucapiciollo.github.io/loadingTrace-demo/
 
-          The `lib/` folder contains the compiled npm package and `docs/` contains the production Angular demo served through GitHub Pages.
+          The `lib/` folder contains the compiled package output and `docs/` contains the production Angular demo served through GitHub Pages.
           EOF
 
       - name: Commit deployment
@@ -88,5 +87,7 @@ jobs:
           git config user.name "demo-deploy-bot"
           git config user.email "demo-deploy-bot@users.noreply.github.com"
           git add -A
-          git commit -m "Deploy pl-loading-trace v1.1.0 demo" || exit 0
+          git commit -m "Deploy updated 108-animation demo" || exit 0
           git push origin main
+
+# demo-only redeploy trigger
