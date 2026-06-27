@@ -1,0 +1,92 @@
+name: Rebuild demo from source
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-from-source.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout demo repository
+        uses: actions/checkout@v4
+        with:
+          path: demo-repo
+          fetch-depth: 0
+
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          repository: Lucapiciollo/loadingTrace
+          ref: master
+          path: source
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: source/package-lock.json
+
+      - name: Install dependencies
+        working-directory: source
+        run: npm ci
+
+      - name: Test library
+        working-directory: source
+        run: npm run test:lib
+
+      - name: Build library
+        working-directory: source
+        run: npm run build:lib
+
+      - name: Build demo
+        working-directory: source
+        run: npx ng build loadingTrace --configuration production --base-href /loadingTrace-demo/
+
+      - name: Replace compiled artifacts
+        run: |
+          rm -rf demo-repo/lib demo-repo/docs
+          mkdir -p demo-repo/lib demo-repo/docs
+          cp -R source/dist/pl-loading-trace/. demo-repo/lib/
+          cp -R source/dist/loading-trace/browser/. demo-repo/docs/
+          touch demo-repo/docs/.nojekyll
+          cp demo-repo/docs/index.html demo-repo/docs/404.html
+
+      - name: Update public README
+        working-directory: demo-repo
+        run: |
+          VERSION=$(node -p "require('../source/projects/pl-loading-trace/package.json').version")
+          cat > README.md <<EOF
+          # loadingTrace-demo
+
+          [![npm](https://img.shields.io/npm/v/pl-loading-trace.svg)](https://www.npmjs.com/package/pl-loading-trace)
+          [![Live demo](https://img.shields.io/badge/demo-live-4f46e5.svg)](https://lucapiciollo.github.io/loadingTrace-demo/)
+
+          Public compiled artifacts and live interactive demo for **pl-loading-trace**.
+
+          - Package version: **${VERSION}**
+          - Animation catalog: **108 total**
+          - Indeterminate loaders: **85**
+          - Determinate progress indicators: **23**
+
+          ## Live demo
+
+          https://lucapiciollo.github.io/loadingTrace-demo/
+
+          The `lib/` folder contains the compiled npm package and `docs/` contains the production Angular demo served through GitHub Pages.
+          EOF
+
+      - name: Commit deployment
+        working-directory: demo-repo
+        run: |
+          git config user.name "demo-deploy-bot"
+          git config user.email "demo-deploy-bot@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy pl-loading-trace v1.1.0 demo" || exit 0
+          git push origin main
