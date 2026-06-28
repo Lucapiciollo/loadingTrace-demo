@@ -3,7 +3,7 @@
 [![Live demo](https://img.shields.io/badge/demo-live-4f46e5.svg)](https://lucapiciollo.github.io/loadingTrace-demo/)
 
 Public **build artifacts** and **live demo** for [`pl-loading-trace`](https://www.npmjs.com/package/pl-loading-trace) —
-an Angular loading-overlay library with **108 CSS animations**, HTTP & router auto-tracking,
+an Angular loading-overlay library with **128 CSS animations**, HTTP & router auto-tracking,
 named overlays, determinate progress bars and a runtime config API built on Angular Signals.
 
 > The library source lives in a separate private repository. **This repo only hosts compiled
@@ -26,6 +26,6 @@ position, and copy the matching `providePlLoadingTrace(...)` configuration.
 ---
 
 - Source version: **1.2.0**
-- Animation catalog: **108 total** — 85 indeterminate, 23 determinate
+- Animation catalog: **128 total** — 95 indeterminate, 33 determinate
 - Last updated: **2026-06-28**
 - License: MIT
