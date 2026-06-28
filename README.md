@@ -25,7 +25,7 @@ position, and copy the matching `providePlLoadingTrace(...)` configuration.
 
 ---
 
-- Source version: **1.1.0**
+- Source version: **1.1.2**
 - Animation catalog: **108 total** — 85 indeterminate, 23 determinate
 - Last updated: **2026-06-28**
 - License: MIT

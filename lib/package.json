@@ -1,6 +1,6 @@
 {
   "name": "pl-loading-trace",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Angular loading overlay library — 108 CSS animations, HTTP & router auto-tracking, named overlays, determinate progress bars, runtime config API, Angular Signals.",
   "keywords": [
     "angular",
